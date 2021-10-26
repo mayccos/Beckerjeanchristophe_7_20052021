@@ -1,0 +1,17 @@
+{
+  "name": "beckerjeanchristophe_7_20052021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^1.43.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "author": "jcb",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}
