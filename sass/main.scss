@@ -1,12 +1,125 @@
 $logoColor : #D04F4F;
 $bgInputColor : #E7E7E7;
+$ingredientColor : #3282F7;
+$ustensileColor : #ED6454;
+$appareilColor : #68D9A4;
+$inputColor : #ffffff;
+$bgImageColor : #C7BEBE;
+$bgRecetteColor : #E6E6E6;
+
 h1{
     color: $logoColor;
 }
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__glass{
+        cursor: pointer;
+        z-index: 1;
+        right: 15px;
+        position: absolute;
+        &::before{
+            content: url('/images/loupe.svg');
+        }
+        
+    }
+}    
+
+
 input{
     background-color: $bgInputColor;
     height: 69px;
     border-radius: 5px;
     border: none;
+}
+.tag{
+    
+    input{
+        align-items: center;
+        background-color: $ingredientColor;
+        height: 37px;
+        
+        color: $inputColor;
+    }
+}
+.tagClose{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $inputColor;
+    cursor: pointer;
+    z-index: 1;
+   
+    cursor: pointer;
+    top: 10px;
+    right: 90px;
+    border-radius: 5px;
+    &::before {
+        content: url('/images/closeTag.svg');
+    }
+    @media (max-width: 1200px) {
+        right: 70px
+    }
+    @media (max-width: 992px) {
+        right: 50px;
+    }
+    @media (max-width: 768px) {
+        right: 50px;
+    }
+    @media (max-width: 575px) {
+        
+    }
     
 }
+#ingredients , #ingredients__list{
+    background-color: $ingredientColor;
+    color: $inputColor;
+}
+#ustensiles , #ustensiles__list{
+    background-color: $ustensileColor;
+    color: $inputColor;
+}
+#appareils , #appareils__list{
+    background-color: $appareilColor;
+    color: $inputColor;
+}
+.selector{
+    letter-spacing: 1px;
+    text-align: left;
+}
+.arrow{
+    transition: transform 300ms;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $inputColor;
+    cursor: pointer;
+    z-index: 1;
+    width: 40px;
+    cursor: pointer;
+    top: 23px;
+    right: 0px;
+    border-radius: 5px;
+    &::before {
+        content: url('/images/selection-arrow.svg');
+    }
+}
+.recette{
+    height: 364px;
+}
+.illustration{
+    height: 178px;
+    background-color: $bgImageColor;
+    border-radius: 5px 5px 0 0;
+}
+.content{
+    background-color: $bgRecetteColor;
+    display: flex;
+    border-radius: 0 0 5px 5px;
+    height: 176px;
+
+}
+

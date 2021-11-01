@@ -2,11 +2,120 @@ h1 {
   color: #D04F4F;
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search__glass {
+  cursor: pointer;
+  z-index: 1;
+  right: 15px;
+  position: absolute;
+}
+.search__glass::before {
+  content: url("/images/loupe.svg");
+}
+
 input {
   background-color: #E7E7E7;
   height: 69px;
   border-radius: 5px;
   border: none;
+}
+
+.tag input {
+  align-items: center;
+  background-color: #3282F7;
+  height: 37px;
+  color: #ffffff;
+}
+
+.tagClose {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1;
+  cursor: pointer;
+  top: 10px;
+  right: 90px;
+  border-radius: 5px;
+}
+.tagClose::before {
+  content: url("/images/closeTag.svg");
+}
+@media (max-width: 1200px) {
+  .tagClose {
+    right: 70px;
+  }
+}
+@media (max-width: 992px) {
+  .tagClose {
+    right: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .tagClose {
+    right: 50px;
+  }
+}
+#ingredients, #ingredients__list {
+  background-color: #3282F7;
+  color: #ffffff;
+}
+
+#ustensiles, #ustensiles__list {
+  background-color: #ED6454;
+  color: #ffffff;
+}
+
+#appareils, #appareils__list {
+  background-color: #68D9A4;
+  color: #ffffff;
+}
+
+.selector {
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.arrow {
+  transition: transform 300ms;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1;
+  width: 40px;
+  cursor: pointer;
+  top: 23px;
+  right: 0px;
+  border-radius: 5px;
+}
+.arrow::before {
+  content: url("/images/selection-arrow.svg");
+}
+
+.recette {
+  height: 364px;
+}
+
+.illustration {
+  height: 178px;
+  background-color: #C7BEBE;
+  border-radius: 5px 5px 0 0;
+}
+
+.content {
+  background-color: #E6E6E6;
+  display: flex;
+  border-radius: 0 0 5px 5px;
+  height: 176px;
 }
 
 /*# sourceMappingURL=style.css.map */

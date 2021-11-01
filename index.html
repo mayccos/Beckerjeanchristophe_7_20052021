@@ -18,22 +18,120 @@
                 <div class="col">
                     <div class="header text-center">
                         <img src="images/logo.svg" alt="logo svg" >
-                        <h1>Les petits plats</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="search">
-                        <input type="text" class="col input" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
-                        <img src="images/loupe.svg" alt="icone loupe" >
+                        <h1 class="h1 h1-danger">Les petits plats</h1>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script
+        <div class=" col-11 container">
+            <div class="search">
+                <input type="text" class="col input" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                <span class="search__glass"></span>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-2 tag">
+                    
+                        <input class="col-lg-8" type="text" value="coco">
+                        <span class="tagClose"></span>
+                        
+                   
+                </div>    
+                    
+            </div><br>
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-4 col-lg-2">
+                    <div class="dropdown">
+                        <div class="selection">
+                            <input name="ingredients" class="col-12 selector" id="ingredients" type="button" value="Ingredients" aria-haspopup="listbox">
+                            <span class="arrow"></span>
+                            <ul class="menu col-12 list-unstyled" role="listbox" id="ingredients__list">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-8 col-md-4 col-lg-2">
+                    <div class="dropdown">
+                        <div class="selection">
+                            <input name="appareils" class="col-12 selector" id="appareils" type="button" value="Appareils" aria-haspopup="listbox">
+                            <span class="arrow"></span>
+                            <ul class="menu col-12 list-unstyled" id="appareils__list" role="listbox">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-8 col-md-4 col-lg-2">
+                    <div class="dropdown">
+                        <div class="selection">
+                            <input name="ustensiles" class="col-12 selector" id="ustensiles" type="button" value="Ustensiles" aria-haspopup="listbox">
+                            <span class="arrow"></span>
+                            <ul class="menu col-12 list-unstyled" id="ustensiles__list" role="listbox">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-4 recette">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
     </body>
 </html>
