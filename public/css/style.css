@@ -1,11 +1,14 @@
+:root {
+  --font-default: "Lato", sans-serif;
+  --font-slab: var(--font-default);
+}
+
 h1 {
   color: #D04F4F;
 }
 
 .search {
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 .search__glass {
   cursor: pointer;
@@ -16,6 +19,10 @@ h1 {
 .search__glass::before {
   content: url("/images/loupe.svg");
 }
+.search .inputSearch {
+  display: flex;
+  align-items: center;
+}
 
 input {
   background-color: #E7E7E7;
@@ -24,62 +31,99 @@ input {
   border: none;
 }
 
-.tag input {
-  align-items: center;
+.noResult {
+  display: none;
+}
+
+/*.tag{
+
+    input{
+        align-items: center;
+        background-color: $ingredientColor;
+        height: 37px;
+
+        color: $inputColor;
+    }
+}
+.tagClose{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $inputColor;
+    cursor: pointer;
+    z-index: 1;
+
+    cursor: pointer;
+    top: 10px;
+    right: 90px;
+    border-radius: 5px;
+    &::before {
+        content: url('/images/closeTag.svg');
+    }
+    @media (max-width: 1200px) {
+        right: 70px
+    }
+    @media (max-width: 992px) {
+        right: 50px;
+    }
+    @media (max-width: 768px) {
+        right: 50px;
+    }
+    @media (max-width: 575px) {
+
+    }
+
+}*/
+/*#dropdown-ingredients{
+    margin-left: 45px;
+}*/
+/*.dropdown{
+    left:-30px;
+}*/
+#ingredients, #ingredientsList, #ingredientsSearch {
   background-color: #3282F7;
-  height: 37px;
   color: #ffffff;
 }
 
-.tagClose {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 1;
-  cursor: pointer;
-  top: 10px;
-  right: 90px;
-  border-radius: 5px;
-}
-.tagClose::before {
-  content: url("/images/closeTag.svg");
-}
-@media (max-width: 1200px) {
-  .tagClose {
-    right: 70px;
-  }
-}
-@media (max-width: 992px) {
-  .tagClose {
-    right: 50px;
-  }
-}
-@media (max-width: 768px) {
-  .tagClose {
-    right: 50px;
-  }
-}
-#ingredients, #ingredients__list {
-  background-color: #3282F7;
-  color: #ffffff;
-}
-
-#ustensiles, #ustensiles__list {
+#ustensiles, #ustensilesList, #ustensilesSearch {
   background-color: #ED6454;
   color: #ffffff;
 }
 
-#appareils, #appareils__list {
+#appareils, #appareilsList, #appareilsSearch {
   background-color: #68D9A4;
   color: #ffffff;
 }
 
-.selector {
+#ingredientsSearch, #ustensilesSearch, #appareilsSearch {
+  border-radius: 5px 5px 0 0;
+}
+
+#ingredientsList, #appareilsList, #ustensilesList {
+  border-radius: 0 0 5px 5px;
+}
+
+#ingredientsList {
+  left: 9px;
+}
+
+#dropdown-menuUst, #dropdown-menuApp, #dropdown-menuIng {
+  margin-top: -70px;
+}
+
+.filter__show {
+  display: block;
+}
+
+.dropdown__menu {
+  display: none;
+}
+.dropdown .btn {
   letter-spacing: 1px;
   text-align: left;
+  display: inline;
+  height: 69px;
 }
 
 .arrow {
@@ -101,8 +145,43 @@ input {
   content: url("/images/selection-arrow.svg");
 }
 
-.recette {
+.recipesList {
+  top: 50px;
+}
+
+.noResult {
+  color: #ffffff;
+}
+
+.recipe {
+  margin-top: 20px;
   height: 364px;
+}
+.recipe__card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-wrap: wrap;
+  background-color: #E6E6E6;
+  display: flex;
+  border-radius: 0 0 5px 5px;
+  height: 176px;
+}
+.recipe__card h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  top: 10px;
+  font-weight: normal;
+}
+.recipe__process {
+  font-size: 0.75em;
+  font-family: "Roboto", sans-serif;
+  height: 140px;
+}
+.recipe__ingredients {
+  font-size: 0.75em;
+  height: 140px;
 }
 
 .illustration {
@@ -111,11 +190,35 @@ input {
   border-radius: 5px 5px 0 0;
 }
 
-.content {
-  background-color: #E6E6E6;
+.recipesList {
   display: flex;
-  border-radius: 0 0 5px 5px;
-  height: 176px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+.time {
+  font-size: 1em;
+  top: 10px;
+  display: flex;
+  font-weight: 700;
+  justify-content: end;
+  align-items: baseline;
+  right: -50px;
+}
+.time img {
+  margin-right: 10px;
+}
+
+/*@media (max-width: 1200px) {
+    .time , .recipe h6{
+        font-size: 0.9em;
+    }
+    .recipe{
+        &__process, &__ingredients{
+            font-size: 0.65em;
+        }
+    }
+}*/
 
 /*# sourceMappingURL=style.css.map */

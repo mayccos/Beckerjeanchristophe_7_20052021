@@ -10,41 +10,81 @@
         <title>Projet6 FishEye</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
+        <div class="header">
             <div class="row">
                 <div class="col">
                     <div class="header text-center">
                         <img src="images/logo.svg" alt="logo svg" >
-                        <h1 class="h1 h1-danger">Les petits plats</h1>
+                        <h1 class="h1">Les petits plats</h1>
                     </div>
                 </div>
             </div>
         </div>
-        <div class=" col-11 container">
-            <div class="search">
-                <input type="text" class="col input" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
-                <span class="search__glass"></span>
-            </div><br>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-2 tag">
-                    <input class="col-lg-8" type="text" value="coco">
-                    <span class="tagClose"></span>
-                </div>    
-            </div><br>
-            <div class="row">
-                <div class="col-12 col-sm-8 col-md-4 col-lg-2">
+        <main>
+            <form action="" method="post">
+                <div class="row search">
+                    <div class="inputSearch col-11 text-center">
+                        <input type="text" class="col input" id="searchInput" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                        <span class="search__glass"></span>
+                    </div>    
+                </div><br>
+                <div class="row active"></div><br>
+                <div class="row dropdownList   ml-sm-3 ml-md-4 ml-xl-5 ">
+                    
+                        <div id="dropdown-ingredients " class="dropdown col-xs-3 col-sm-3 col-md-3 col-lg-2 ">
+                            <button class="btn col-12"  id="ingredients" type="button"  aria-haspopup="listbox">Ingredients 
+                                <span class="arrow"></span></button>
+                            <div class="dropdown__menu text-center" id="dropdown-menuIng">
+                                <input class="col-11 dropdown__filter" id="ingredientsSearch"  type="text" placeholder="recherche un ingrédient">
+                                <ul class="dropdown__filterList col-11 list-unstyled" id="ingredientsList" role="listbox">
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                </ul>
+                            </div>    
+                        </div>
+                    
+				        <div id="dropdown-appareils"    class="dropdown col-xs-10 col-sm-3 col-md-3 col-lg-2 ">
+                            <button class="btn col-12"  id="appareils" type="button"  aria-haspopup="listbox">Appareils
+                                <span class="arrow"></span></button>
+                            <div class="dropdown__menu text-center" id="dropdown-menuApp">
+                                <input class="col-11 dropdown__filter" id="appareilsSearch"  type="text" placeholder="recherche un appareil">
+                                <ul class="dropdown__filterList col-11 list-unstyled" id="appareilsList" role="listbox">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                                </ul>
+                            </div> 
+                        </div>
+				        <div id="dropdown-ustensiles"  class="dropdown col-xs-10 col-sm-3 col-md-3 col-lg-2">
+                            <button class="btn col-12 "  id="ustensiles" type="button"  aria-haspopup="listbox">Ustensiles 
+                                <span class="arrow"></span></button>
+                            <div class="dropdown__menu text-center" id="dropdown-menuUst">
+                                <input class="col-11 dropdown__filter" id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
+                                <ul class="dropdown__filterList col-11 list-unstyled" id="ustensilesList" role="listbox">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                                </ul>
+                            </div> 
+                        </div>
+                        <!--<div class="col-12 col-sm-8 col-md-4 col-lg-2">
                     <div class="dropdown">
                         <div class="selection">
                             <input name="ingredients" class="col-12 selector" id="ingredients" type="button" value="Ingredients" aria-haspopup="listbox">
                             <span class="arrow"></span>
-                            <ul class="menu col-12 list-unstyled" role="listbox" id="ingredients__list">
-                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
-                            </ul>
+                            <div class="">
+                                <input class="col ingredientsSearch" type="text" placeholder="recherche un ingrédient">
+                                <ul class="ingredientsList col-12 list-unstyled" role="listbox" id="ingredients__list">
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,11 +93,14 @@
                         <div class="selection">
                             <input name="appareils" class="col-12 selector" id="appareils" type="button" value="Appareils" aria-haspopup="listbox">
                             <span class="arrow"></span>
-                            <ul class="menu col-12 list-unstyled" id="appareils__list" role="listbox">
-                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
-                            </ul>
+                            <div class="">
+                                <input class="col appareilsSearch" type="text" placeholder="recherche un appareil">
+                                <ul class="appareilsList col-12 list-unstyled" id="appareils__list" role="listbox">
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                </ul>
+                            </div>    
                         </div>
                     </div>
                 </div>
@@ -66,68 +109,226 @@
                         <div class="selection">
                             <input name="ustensiles" class="col-12 selector" id="ustensiles" type="button" value="Ustensiles" aria-haspopup="listbox">
                             <span class="arrow"></span>
-                            <ul class="menu col-12 list-unstyled" id="ustensiles__list" role="listbox">
-                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
+                            <div class="">
+                                <input class="col ustensilesSearch" type="text" placeholder="recherche un ustensile">
+                                <ul class="ustensilesList col-12 list-unstyled" id="ustensiles__list" role="listbox">
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                    <li role="option" class="menu__option" tabindex="0" >#</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </div>-->
+                    
+                </div>
+            </form><br>
+            <div class="row col-sm-12 col-xl-11 ml-xl-4 recipesList" id="recipesList">
+                <p class="noResult bg-danger" id="hide">
+                    Votre saisie ne correspond à aucune recettte!
+                    Vous pouvez checher "tarte aux pommes", "lait de coco", "poisson", etc.
+                </p>
+                <!--<div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-lg-8 col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
                             </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-lg-8 col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
+                            </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-lg-8 col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
+                            </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-lg-8 col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
+                            </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-lg-8 col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
+                            </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col recipe__card">
+                        <div class="row col recipe__header">
+                            
+                                <h6 class="col-7">Limonade de coco</h6>
+                                <div class="col-5 time">
+                                    <img src="images/horloge.svg" alt="">
+                                    <p>10 min</p>
+                                </div>    
+                            
+                        </div><br>
+                        <div class="row recipe__content">
+                            <ul class="col-xl-6 recipe__ingredients list-unstyled">
+                                
+                                    <li class="col-12"><strong>Lait de coco :</strong> 400ml</li> 
+                                
+                            </ul>
+                            <div class="col-lg-4 col-xl-6 recipe__process">
+                                <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-lg-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+            
+            
+                <div class="col-lg-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-lg-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>
+                <div class="col-lg-4 recipe">
+                    <div class="illustration ">
+                        <img src="" alt="">
+                    </div>
+                    <div class="content">
+                        I
+                    </div>
+                </div>-->
             </div>
-            <div class="row">
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-                <div class="col-4 recette">
-                    <div class="illustration ">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content">
-                        I
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="app.js"></script>
+        </main>
+        
+        <script src="./index.js" type="module"></script>
     </body>
 </html>
