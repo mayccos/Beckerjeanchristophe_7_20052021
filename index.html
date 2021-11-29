@@ -28,8 +28,8 @@
             <form action="" method="post">
                 <div class="row search">
                     <div class="inputSearch col-11 text-center">
-                        <input type="text" class="col input" id="searchInput" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
-                        <span class="search__glass"></span>
+                        <input type="text" class="col searchInput" id="searchInput" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                        <span class="search__glass" id="searchGlass"></span>
                     </div>    
                 </div><br>
                 <div class="row active"></div><br>
@@ -41,9 +41,9 @@
                             <div class="dropdown__menu text-center" id="dropdown-menuIng">
                                 <input class="col-11 dropdown__filter" id="ingredientsSearch"  type="text" placeholder="recherche un ingrédient">
                                 <ul class="dropdown__filterList col-11 list-unstyled" id="ingredientsList" role="listbox">
+                                <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>
-                                <li role="option" class="menu__option" tabindex="0" >#</li>
+                                <li role="option" class="menu__option" tabindex="0" >#</li>-->
                                 </ul>
                             </div>    
                         </div>
@@ -123,11 +123,14 @@
                     
                 </div>
             </form><br>
-            <div class="row col-sm-12 col-xl-11 ml-xl-4 recipesList" id="recipesList">
+            <div class="row col-sm-12 col-xl-11 ml-xl-5 text-center mt-xl-5">
                 <p class="noResult bg-danger" id="hide">
                     Votre saisie ne correspond à aucune recettte!
-                    Vous pouvez checher "tarte aux pommes", "lait de coco", "poisson", etc.
+                    Vous pouvez checher "tarte aux pommes", "lait de coco", "poisson", "saladier", "four" etc.
                 </p>
+            </div>
+            <div class="row col-sm-12 col-xl-11 ml-xl-4 recipesList" id="recipesList">
+                
                 <!--<div class="col-md-8 col-lg-6 col-xl-4 recipe">
                     <div class="illustration ">
                         <img src="" alt="">

@@ -116,8 +116,15 @@ input {
   display: block;
 }
 
-.dropdown__menu {
-  display: none;
+.dropdown {
+  /*&__menu{
+      display: none;
+  }*/
+}
+.dropdown__filterList {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 3;
 }
 .dropdown .btn {
   letter-spacing: 1px;
@@ -154,6 +161,7 @@ input {
 }
 
 .recipe {
+  z-index: 2;
   margin-top: 20px;
   height: 364px;
 }

@@ -121,9 +121,15 @@ input{
     display: block;
 } 
 .dropdown{
-    &__menu{
-        display: none;
+    &__filterList{
+        display: flex;
+        flex-wrap: wrap;z-index: 3;
+        
     }
+    
+    /*&__menu{
+        display: none;
+    }*/
     .btn{
         letter-spacing: 1px;
         text-align: left;
@@ -150,12 +156,14 @@ input{
     }
 }
 .recipesList{
+    
     top: 50px;
 }
 .noResult{
     color: $inputColor;
 }
 .recipe{
+    z-index: 2;
     margin-top: 20px;
     height: 364px;
     &__card{

@@ -87,6 +87,6 @@ export default class Recipe{
 		
 
 		return html;
-	}
-
+	  }
+    
 }

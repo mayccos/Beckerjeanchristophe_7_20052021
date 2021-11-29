@@ -1,5 +1,5 @@
 import Recipe from './recipe.js';
-
+import Ingredient from './ingredients.js';
 import {recipesData, parseDataFromJson} from './api.js';
 
 
@@ -31,7 +31,7 @@ const recs = recipesData(parseDataFromJson());
 let recipes2 = [];
 
 
-recipes2 = displayRecipes(recs);
+displayRecipes(recs);
 function displayRecipes(recs) {
     recs.then(result =>{
         recipes = result;
@@ -47,53 +47,155 @@ function displayRecipes(recs) {
               recipe.ustensiles
               
           );
-          recipes2.push(rec);
-          //console.log(recipes2);
           const div = document.createElement('div');
           div.className="col-md-8 col-lg-6 col-xl-4 recipe";
           let recipeCard = rec.recipeCard();
           div.innerHTML = recipeCard;
           document.getElementById("recipesList").appendChild(div);
+            
           
       });
   })
       .catch(error => {
           console.log(error);
-      });return recipes2;
+      });
 }
-
-
-//const inputsearch = "/"+inputValue+"/i";
-
-function search() {
-//console.log(recipes2);
-//console.log(recipes2.length); 
-let item = /coco/i; 
-
-  for (let i = 0; i < recipes2.length; i++) {
-    
-    if (recipes2[i].name.match(item) || recipes2[i].description.match(item) || recipes2[i].appliance.match(item) || recipes2[i].ingredients.toString().match(item) ||
-     recipes2[i].ustensiles.toString().match(item)) {
-      console.log(recipes2[i]);
-    
+let recipes3 = [];
+let ings = [];
+displayIngredientsIndropdown(recs)
+function displayIngredientsIndropdown(recs) {
+    recs.then(result => {
+        recipes3= result;
+        //console.log(recipes3);
+        recipes3.forEach(recipe =>{
+            let rec = new Recipe(
+              recipe.name ,
+              recipe.id,
+              recipe.servings ,
+              recipe.ingredients ,
+              recipe.time ,
+              recipe.description, 
+              recipe.appliance ,
+              recipe.ustensiles
+            );
+            ings += recipe.ingredients;
+            console.log(ings.flat());
+            
+            //let app = [recipe.appliance];
+            
+            /*var tableauSansDoublon = app.reduce(function (acc, valCourante) {
+              if(acc.indexOf(valCourante) === -1) {
+                acc.push(valCourante);
+              }
+              return acc
+            }, []);*/  
+            
+            
+          })  
+          
+    });
+};
+function flatStack(input) {
+  const stack = [...input];
+  const res = [];
+  while (stack.length) {
+    // On sort une valeur de la pile
+    const next = stack.pop();
+    if (Array.isArray(next)) {
+      // On place les éléments qui sont des tableaux dans
+      // la pile sans modifier l'entrée
+      stack.push(...next);
+    } else {
+      res.push(next);
     }
-  } 
+  }
+  // On inverse le résultat pour revenir
+  // à l 'ordre de l'entrée
+  return res.reverse();
 }
-search();
+
+
+/**let ingredients = "";
+const ings = ingredientsData(parseDataFromJson());
+displayIngredients(ings);
+function displayIngredients(ings) {
+    ings.then(result => {
+      ingredients = result;console.log(Ingredient);
+      ingredients.forEach(ingredient => {
+        let ing = new Ingredient(
+          ingredient.ingredient, 
+          ingredient.quantity, 
+          ingredient.unit
+        );console.log(ing);
+        const li = document.createElement('li');
+        li.className = "menu__option";
+        li.ariaRoleDescription = "option";
+        li.tabIndex= 0;
+        let ingredientsDropdown = ing.ingredientsInDropdown();
+        li.innerHTML = ingredientsDropdown;
+        document.getElementById("ingredientsList").appendChild(li);
+    });
+    
+          
+  })
+      .catch(error => {
+          console.log(error);
+      });
+}*/
+
+
+/*const paragraph = searchInput.value;
+const regex = /paragraph/gi;
+const found = paragraph.match(regex);
+console.log(found);*/
+const hide = document.querySelector(".noResult");
+function search() {
+  let item = "/"+ searchInput.value +"/i"; 
+  console.log(item);
+  recs.then(result => {
+    recipes2 = result;
+    
+    for (const recipe of recipes2) {
+      if (recipe.name.match(item) || recipe.description.match(item) || recipe.appliance.match(item) || recipe.ingredients.toString().match(item) ||
+        recipe.ustensiles.toString().match(item)) {
+          const div = document.createElement('div');
+          div.className="col-md-8 col-lg-6 col-xl-4 recipe";
+          let recipeCard = recipe.recipeCard();
+          div.innerHTML = recipeCard;
+          document.getElementById("recipesList").appendChild(div);
+    
+      }
+    }
+  })
+     .catch(error => {
+      console.log(error);
+  });
+}
+document.querySelector('.search__glass').addEventListener('click' , () => {
+  document.querySelector('.recipesList').innerHTML = "";
+  search();
+  if(document.querySelector('.recipesList').innerHTML = ""){
+    hide.style.display = 'block';
+  }
+});
+//search();
 
   
 
   //displayPhotographers(recipes);
-/*let recipes = "";
+/*let ings = "";
 fetch('recipes.json')
 .then(function(response) {
   if(response.ok) {
     response.json().then(function(result){
       let resultat = result;
-      recipes=resultat.recipes;
-      console.log(recipes);
-      for (let recipe of recipes) {
-        let  creation = document.createElement("div");
+      ings=resultat.ingredients;
+      console.log(ings);
+    })  
+  }   
+})    
+    for (let recipe of recipes) {
+       let  creation = document.createElement("div");
         creation.className = "col-md-8 col-lg-6 col-xl-4 recipe";
         let affichage = "";
         affichage +=
@@ -126,7 +228,7 @@ fetch('recipes.json')
         document.getElementById("recipesList").appendChild(creation);
         /*let div = document.createElement("div");
         div.className="row recipe__content";*/
-        /*let ingredients = recipe.ingredients;
+              /*let ingredients = recipe.ingredients;
         let ul = document.createElement("ul");            
         ul.className="col-lg-8 col-xl-6 recipe__ingredients list-unstyled";
         //div.appendChild(ul); 
