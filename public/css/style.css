@@ -22,12 +22,16 @@ h1 {
 .search .inputSearch {
   display: flex;
   align-items: center;
+  border: none;
 }
 
 input {
   background-color: #E7E7E7;
   height: 69px;
   border-radius: 5px;
+  border: none;
+}
+input :focus {
   border: none;
 }
 
@@ -104,8 +108,12 @@ input {
   border-radius: 0 0 5px 5px;
 }
 
-#ingredientsList {
-  left: 9px;
+#ingredientsList, #appareilsList {
+  left: -8px;
+}
+
+#ustensilesList {
+  left: -8px;
 }
 
 #dropdown-menuUst, #dropdown-menuApp, #dropdown-menuIng {
@@ -116,24 +124,31 @@ input {
   display: block;
 }
 
-.dropdown {
-  /*&__menu{
-      display: none;
-  }*/
-}
 .dropdown__filterList {
-  display: flex;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
   flex-wrap: wrap;
   z-index: 3;
+  position: relative;
+}
+.dropdown__filterList a {
+  color: #ffffff;
+}
+.dropdown__filterList a:hover, .dropdown__filterList a:active {
+  text-decoration: none;
+}
+.dropdown__menu {
+  display: none;
 }
 .dropdown .btn {
   letter-spacing: 1px;
   text-align: left;
   display: inline;
   height: 69px;
+  width: 170px;
 }
 
-.arrow {
+.arrow, .arrow2, .arrow3 {
   transition: transform 300ms;
   position: absolute;
   display: flex;
@@ -148,11 +163,13 @@ input {
   right: 0px;
   border-radius: 5px;
 }
-.arrow::before {
+.arrow::before, .arrow2::before, .arrow3::before {
   content: url("/images/selection-arrow.svg");
 }
 
 .recipesList {
+  position: absolute;
+  z-index: 2;
   top: 50px;
 }
 
@@ -161,7 +178,6 @@ input {
 }
 
 .recipe {
-  z-index: 2;
   margin-top: 20px;
   height: 364px;
 }

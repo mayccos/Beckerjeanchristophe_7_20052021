@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body class="homaPage">
         <div class="header">
             <div class="row">
                 <div class="col">
@@ -33,14 +33,14 @@
                     </div>    
                 </div><br>
                 <div class="row active"></div><br>
-                <div class="row dropdownList   ml-sm-3 ml-md-4 ml-xl-5 ">
+                <div class="row dropdownList col   ml-sm-3 ml-md-4 ml-xl-5 ">
                     
-                        <div id="dropdown-ingredients " class="dropdown col-xs-3 col-sm-3 col-md-3 col-lg-2 ">
-                            <button class="btn col-12"  id="ingredients" type="button"  aria-haspopup="listbox">Ingredients 
+                        <div id="dropdown-ingredients " class="dropdown ">
+                            <button class="btn ml-4 ml-sm-0"  id="ingredients" type="button"  aria-haspopup="listbox">Ingredients 
                                 <span class="arrow"></span></button>
-                            <div class="dropdown__menu text-center" id="dropdown-menuIng">
-                                <input class="col-11 dropdown__filter" id="ingredientsSearch"  type="text" placeholder="recherche un ingrédient">
-                                <ul class="dropdown__filterList col-11 list-unstyled" id="ingredientsList" role="listbox">
+                            <div class="dropdown__menu text-center " id="dropdown-menuIng">
+                                <input class="col dropdown__filter " id="ingredientsSearch" type="text" placeholder="recherche un ingrédient">
+                                <ul class="dropdown__filterList col list-unstyled ml-2" id="ingredientsList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>-->
@@ -48,24 +48,24 @@
                             </div>    
                         </div>
                     
-				        <div id="dropdown-appareils"    class="dropdown col-xs-10 col-sm-3 col-md-3 col-lg-2 ">
-                            <button class="btn col-12"  id="appareils" type="button"  aria-haspopup="listbox">Appareils
-                                <span class="arrow"></span></button>
+				        <div id="dropdown-appareils"    class="dropdown">
+                            <button class="btn ml-4 ml-sm-3 ml-md-5"  id="appareils" type="button"  aria-haspopup="listbox">Appareils
+                                <span class="arrow2"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuApp">
-                                <input class="col-11 dropdown__filter" id="appareilsSearch"  type="text" placeholder="recherche un appareil">
-                                <ul class="dropdown__filterList col-11 list-unstyled" id="appareilsList" role="listbox">
+                                <input class="col dropdown__filter " id="appareilsSearch"  type="text" placeholder="recherche un appareil">
+                                <ul class="dropdown__filterList col list-unstyled ml-2" id="appareilsList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>-->
                                 </ul>
                             </div> 
                         </div>
-				        <div id="dropdown-ustensiles"  class="dropdown col-xs-10 col-sm-3 col-md-3 col-lg-2">
-                            <button class="btn col-12 "  id="ustensiles" type="button"  aria-haspopup="listbox">Ustensiles 
-                                <span class="arrow"></span></button>
+				        <div id="dropdown-ustensiles"  class="dropdown">
+                            <button class="btn ml-4 ml-sm-3 ml-md-5"  id="ustensiles" type="button"  aria-haspopup="listbox">Ustensiles 
+                                <span class="arrow3"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuUst">
-                                <input class="col-11 dropdown__filter" id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
-                                <ul class="dropdown__filterList col-11 list-unstyled" id="ustensilesList" role="listbox">
+                                <input class="col dropdown__filter " id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
+                                <ul class="dropdown__filterList col list-unstyled ml-2" id="ustensilesList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>-->

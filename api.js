@@ -1,5 +1,5 @@
 import Recipe from './recipe.js';
-import Ingredient from './ingredients.js';
+
 
 /**
  * function to recover data from a URL and parsed as Json Format
@@ -49,16 +49,6 @@ function recipeToText(r) {
     
 }
 
-/*let ingredientsData = async(jsonData) =>{
-  const data = await jsonData;
-  const ingredients = data.ingredients;
-  
-  let ingredientsArray = [];
-  ingredients.map(data =>{
-    ingredientsArray.push(new Ingredient(data.ingredient, data.quantity, data.unit))
-  });console.log(ingredientsArray);
-  return ingredientsArray;
-}*/
 
     
 
