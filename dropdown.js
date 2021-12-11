@@ -8,24 +8,24 @@ function openDropdownIngredients() {
 
 function openDropdownAppliances() {
     const option = document.querySelector('#dropdown-menuApp');
-    const arrow = document.querySelector('.arrow2', 'before');
+    const arrow2 = document.querySelector('.arrow2', 'before');
     option.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
+    arrow2.style.transform = 'rotate(180deg)';
     
 };
 
 function openDropdownUstensiles() {
     const option = document.querySelector('#dropdown-menuUst');
-    const arrow = document.querySelector('.arrow3', 'before');
+    const arrow3 = document.querySelector('.arrow3', 'before');
     option.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
+    arrow3.style.transform = 'rotate(180deg)';
     
 };
 
 
 function closeDropdownIngredients() {
     const option = document.querySelector('#dropdown-menuIng');
-    const arrow = document.querySelector('.arrow', 'before');
+    const arrow = document.querySelector('.arrow');
     
     option.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
@@ -34,7 +34,7 @@ function closeDropdownIngredients() {
 
 function closeDropdownAppareils() {
     const option = document.querySelector('#dropdown-menuApp');
-    const arrow = document.querySelector('.arrow2', 'before');
+    const arrow = document.querySelector('.arrow2');
     
     option.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
@@ -43,12 +43,14 @@ function closeDropdownAppareils() {
 
 function closeDropdownUstensiles() {
     const option = document.querySelector('#dropdown-menuUst');
-    const arrow = document.querySelector('.arrow3', 'before');
+    const arrow = document.querySelector('.arrow3','before');
     
     option.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
     
-};    
+};
+
+
 
 
 

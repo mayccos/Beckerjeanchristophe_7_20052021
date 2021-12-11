@@ -130,14 +130,50 @@ input{
 .filter__show {
     display: block;
 } 
+.active{
+    display: flex;
+    
+    @media (max-width: 576px) {
+        justify-content: space-around;
+    }
+}
+.ingredientTag, .appareilTag, .ustensileTag{
+    padding-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    color: $inputColor;
+    min-width: 107px;
+    height: 37px;
+    margin-left: 20px;
+}
+.closeIngredientTag, .closeAppareilTag, .closeUstensileTag{
+    cursor: pointer;
+    &::before{
+        content: url('/images/closeTag.svg');
+    }
+}
+.closeIngredientTag, .ingredientTag{
+    background-color: $ingredientColor;
+}
+.closeAppareilTag, .appareilTag{
+    background-color: $appareilColor;
+}
+.closeUstensileTag, .ustensileTag{
+    background-color: $ustensileColor;
+}
+form{
+    
+    z-index: 3;
+}
 .dropdown{
     &__filterList{
         display: grid;
         grid-template-columns: 33% 33% 33%;
         
         flex-wrap:wrap;
-        z-index: 3;
-        position: relative;
+        
+        
         a{
             &:hover, &:active{
                 text-decoration: none;
@@ -148,6 +184,7 @@ input{
     
     &__menu{
         display: none;
+        
     }
     
     .btn{
@@ -176,11 +213,8 @@ input{
         content: url('/images/selection-arrow.svg');
     }
 }
-.recipesList{
-    position: absolute;
-    z-index: 2;
-    top: 50px;
-}
+
+
 .noResult{
     color: $inputColor;
 }
@@ -233,7 +267,9 @@ input{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
+    position: fixed;
+    z-index: 2;
+    top: 50px;
 }
 .time{
     font-size: 1em;

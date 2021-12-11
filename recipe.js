@@ -42,7 +42,7 @@ export default class Recipe{
             ${ this.ingredientsInRecipes() } 
           </ul>    
           <div class="col-6  recipe__process">
-            <p class="recipe__textCut ">${this.description}</p>
+            <p class="recipe__textCut" >${this.description}</p>
           </div>       
         </div>       
       </div> 
