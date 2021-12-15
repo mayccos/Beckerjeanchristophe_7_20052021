@@ -145,6 +145,7 @@ input :focus {
 }
 
 .closeIngredientTag, .closeAppareilTag, .closeUstensileTag {
+  z-index: 6;
   cursor: pointer;
 }
 .closeIngredientTag::before, .closeAppareilTag::before, .closeUstensileTag::before {
@@ -178,6 +179,10 @@ form {
 .dropdown__filterList a:hover, .dropdown__filterList a:active {
   text-decoration: none;
 }
+.dropdown__filter {
+  z-index: 4;
+  position: relative;
+}
 .dropdown__menu {
   display: none;
 }
@@ -196,8 +201,7 @@ form {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  cursor: pointer;
-  z-index: 1;
+  z-index: 5;
   width: 40px;
   cursor: pointer;
   top: 23px;

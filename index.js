@@ -12,7 +12,7 @@ import { openDropdownIngredients, openDropdownAppliances, openDropdownUstensiles
 
 
 const recipes = await recipesData(parseDataFromJson());
-let recipes2 = [];
+
 displayRecipes(recipes);
 function displayRecipes(recipes) {
     recipes.forEach(recipe => {
@@ -55,7 +55,7 @@ function displayIngredients(allIngredients) {
     allIngredients.forEach(allIngredient =>{
         const ul = document.getElementById('ingredientsList');
         ul.innerHTML +=` <li role="option"  class="menu__option-ingredient" tabindex="0" style="cursor:pointer">${allIngredient}</li> ` ;
-    });      
+    }); 
 };
 displayAppliances(allAppliances);
 function displayAppliances(allAppliances) {
@@ -73,21 +73,23 @@ function displayUstensiles(allUstensiles) {
 };
 //regex
 const regexInput = /^[a-zA-Z]{3,}$/;
-
+let recipes2 = [];
 const dataRecipes = recipesData(parseDataFromJson());
 
+let hide = document.getElementById('hide');
 let recipes3 = [];
 let ingredientsFiltered = [];//array to recuperate ingredients of recipes matched by algorithm
 let appliancesFiltered = []; //array to recuperate appliances of recipes matched by algorithm
 let ustensilesFiltered = []; //array to recuperate ustensiles of recipes matched by algorithm
 function search() {
   let item = searchInput.value; //pivot of algorithm is value of principal input(search)
-    if (regexInput.exec(item) === null  ) {
-        document.querySelector('#hide').style.display = "block";
+    if (regexInput.exec(item) === null) {
+        hide.style.display = "block";
     } else {
-        document.querySelector('#hide').style.display = "none";
+        hide.style.display = "none";
         dataRecipes.then(result =>{
             recipes2 = result;
+
             //algorithm in forof's method functionality normal
             for (let recipe of recipes2) {
 
@@ -113,39 +115,70 @@ function search() {
                     appliancesFiltered= [...new Set(appliancesFiltered.concat(recipe.appliance))];
                 
                 });
-                displayAppliances(allAppliances);
+                displayAppliances(appliancesFiltered);
                 displayIngredients(ingredientsFiltered);
                 displayUstensiles(ustensilesFiltered);  
                 return {ingredientsFiltered, ustensilesFiltered, appliancesFiltered};
-
+                
                 //display ustensiles filtered in dropdown ustensiles
                 function displayUstensiles(ustensilesFiltered) {
                     ustensilesFiltered.forEach(ustensileFiltered =>{
                         const ul = document.getElementById('ustensilesList');
-                        ul.innerHTML +=` <li role="option"  class="menu__option-ustensile" tabindex="0" style="cursor:pointer" >${ustensileFiltered}</li> ` ;
+                        ul.innerHTML +=` <li role="option" onclick="tagUstensilesDisplay(this), closeDropdownUstensiles(this)"  class="menu__option-ustensile" tabindex="0" style="cursor:pointer" >${ustensileFiltered}</li> ` ;
                     });      
                 };
                 //display ingredients filtered in dropdown ingredients
                 function displayIngredients(ingredientsFiltered) {
-                    ingredientsFiltered.forEach(ingredientFiltered =>{console.log(ingredientFiltered  );
+                    ingredientsFiltered.forEach(ingredientFiltered =>{
                         const ul = document.getElementById('ingredientsList');
-                        ul.innerHTML +=` <li role="option"  class="menu__option-ingredient" tabindex="0" style="cursor:pointer">${ingredientFiltered}</li> ` ;
-                    });    
+                        ul.innerHTML +=` <li role="option" onclick="tagIngredientsDisplay(this), closeDropdownIngredients(this), specifiedSearch(this)"  class="menu__option-ingredient" tabindex="0" style="cursor:pointer">${ingredientFiltered}</li> ` ;
+                    });     
                 };
                 //display appliances filtered in dropdown appliances
                 function displayAppliances(appliancesFiltered) {
                     appliancesFiltered.forEach(applianceFiltered =>  {
                         const ul = document.getElementById('appareilsList');
-                        ul.innerHTML +=` <li role="option"  class="menu__option-appareil" tabindex="0" style="cursor:pointer">${applianceFiltered}</li> ` ;
-                    });    
+                        ul.innerHTML +=` <li role="option"  class="menu__option-appareil" onclick="tagAppareilsDisplay(this),closeDropdownAppareils(this)" tabindex="0" style="cursor:pointer">${applianceFiltered}</li> ` ;
+                    });   
                 }; 
+                
             };
-
+            
         }); 
-    }return recipes3;
-  
-        
+    }
+    
+    return recipes3;
 };
+//display ingredient selected of dropdown in active(html element)
+const active = document.querySelector('.active');
+function tagIngredientsDisplay(el) {
+    active.innerHTML += `<p class="ingredientTag">${el.innerText}<span class="closeIngredientTag mt-1" onclick"closeTagIngredient()"></span></p>`;
+};
+//display appliance selected of dropdown in active(html element)
+
+function tagAppareilsDisplay(el) {
+    active.innerHTML += `<p class="appareilTag ">${el.innerText}<span class="closeAppareilTag mt-1" ></span></p>`;
+};
+//display ustensile selected of dropdown in active (html element) 
+function tagUstensilesDisplay(el) {
+    active.innerHTML += `<p class="ustensileTag">${el.innerText}<span class="closeUstensileTag mt-1"></span></p>`;
+};
+//remove ingredient'tag in active(html element)
+function closeTagIngredient() {
+    document.getElementsByClassName('ingredientTag').style.display = 'none';
+}
+//display no result message when this is not recipe
+function noResult() {
+    let item = searchInput.value; 
+    if (!allIngredients.toString().match(item) && !allAppliances.toString().match(item) && !allUstensiles.toString().match(item)) {
+        hide.style.display = 'block';
+    }else{
+        hide.style.display = 'none';
+    }
+}
+
+     
+    
 
 
 /**
@@ -153,103 +186,140 @@ function search() {
  */
 
 document.querySelector('.search__glass').addEventListener('click' , () => {
-  document.querySelector('.recipesList').innerHTML = "";
-
-  document.querySelector('#ingredientsList').innerHTML = "";
-  document.querySelector('#appareilsList').innerHTML = "";
-  document.querySelector('#ustensilesList').innerHTML = "";
-  search();
-  
+    document.querySelector('.recipesList').innerHTML = "";
+    document.querySelector('#ingredientsList').innerHTML = "";
+    document.querySelector('#appareilsList').innerHTML = "";
+    document.querySelector('#ustensilesList').innerHTML = "";
+    search();
+    noResult();
+    
+    
 });
+//When input search(principal) is clicked ,it value become empty
+//and the page come back to load
+document.querySelector('.searchInput').addEventListener('click' , () =>{
+    displayUstensiles(allUstensiles);
+    displayAppliances(allAppliances);
+    displayIngredients(allIngredients);
+    displayRecipes(recipes);
+    hide.style.display = 'none';
+    document.querySelector('.searchInput').value = "";
+    active .innerHTML = "";
+})
+ //when input of dropdown is clicked => input value is empty
 
+    
+//Event to open dropdown
 document.querySelector('#ingredients').addEventListener('click' , () => {
     openDropdownIngredients();
+    document.querySelector('#ingredientsSearch').value = "";
 });
 document.querySelector('#appareils').addEventListener('click' , () => {
     openDropdownAppliances();
+    document.querySelector('#appareilsSearch').value = "";
 });
 document.querySelector('#ustensiles').addEventListener('click' , () => {
     openDropdownUstensiles();
+    document.querySelector('#ustensilesSearch').value = "";
 });
-document.querySelector('.arrow').addEventListener('click' , () =>{
+//Event to close dropdown
+document.querySelector('.arrow' , 'before').addEventListener('click' , (e) =>{
+    
     closeDropdownIngredients();
 });
 document.querySelector('.arrow2').addEventListener('click' , () =>{
     closeDropdownAppareils();
 });
 document.querySelector('.arrow3').addEventListener('click' , () =>{
-    
     closeDropdownUstensiles();
-});
+})
+
+// if Escape touch is keyup => close dropdown
 window.addEventListener('keyup' , function (e){
     if (e.key === 'Escape') {
         e.preventDefault();
         closeDropdownUstensiles();
         closeDropdownIngredients();
         closeDropdownAppareils();
+
     }
 });
-document.querySelector('#ingredientsSearch').addEventListener('click' , () => {
-    document.querySelector('#ingredientsList ').innerHTML = "";
-});
 
-document.querySelector('#appareilsSearch').addEventListener('click' , () => {
-    document.querySelector('#appareilsList ').innerHTML = "";
-});
 
-document.querySelector('#ustensilesSearch').addEventListener('click' , () => {
-    document.querySelector('#ustensilesList ').innerHTML = "";
-});
-let ingredientOption= document.getElementsByClassName('menu__option-ingredient');
-function specifiedSearch(recipes) {
-    let item2 = ingredientOption.innerText;
-    
-    dataRecipes.then(result =>{
-        recipes = result;
-    
-        for (const recipe of recipes) {
-            if (recipe.name.match(item2) || recipe.description.match(item2) || recipe.appliance.match(item2) || recipe.ingredients.toString().match(item2) ||
-                recipe.ustensiles.toString().match(item2)) {
-                    
-                    const div = document.createElement('div');
-                    div.className="col-md-8 col-lg-6 col-xl-4 recipe";
-                    let recipeCard = recipe.recipeCard();
-                    div.innerHTML = recipeCard;
-                    document.getElementById("recipesList").appendChild(div);
-            }
+
+function specifiedSearch(e) {
+    document.querySelector('.recipesList').innerHTML = "";
+    for (const recipe3 of recipes3) {
+        
+        let item2 = e.innerText;
+        if (recipe3.name.match(item2) || recipe3.description.match(item2) || recipe3.appliance.match(item2) || recipe3.ingredients.toString().match(item2) ||
+        recipe3.ustensiles.toString().match(item2)) {
+            const div = document.createElement('div');
+            div.className="col-md-8 col-lg-6 col-xl-4 recipe";
+            let recipeCard = recipe3.recipeCard();
+            div.innerHTML = recipeCard;
+            document.getElementById("recipesList").appendChild(div);  
         }
-    })
+    }
 }
 
-//display ingredient selected of dropdown in active(html element)
-const active = document.querySelector('.active');
-let optionIngredients = document.getElementsByClassName('menu__option-ingredient');
-for (let optionIngredient of optionIngredients) {
-     optionIngredient.addEventListener('click' , () =>{
-        specifiedSearch();
-        active.innerHTML += `<p class="ingredientTag">${optionIngredient.innerText}<span class="closeIngredientTag mt-1"></span></p>`;
-    })
-};
-//display appliance selected of dropdown in active(html element)
-let optionAppliances = document.getElementsByClassName('menu__option-appareil');
-for (let optionAppliance of optionAppliances) {
-     optionAppliance.addEventListener('click' , () =>{
-        active.innerHTML += `<p class="appareilTag ">${optionAppliance.innerText}<span class="closeAppareilTag mt-1"></span></p>`;
-    })
-};
 
-//display ustensile selected of dropdown in active (html element) 
-let optionUstensiles = document.getElementsByClassName('menu__option-ustensile');
-for (let optionUstensile of optionUstensiles) {
-     optionUstensile.addEventListener('click' , () =>{
-        active.innerHTML += `<p class="ustensileTag">${optionUstensile.innerText}<span class="closeUstensileTag mt-1"></span></p>`;
-    })
-};
 
-//remove ingredient'tag in active(html element)
-let closeIngredientTags = document.getElementsByClassName('closeIngredientTag','before');
-for (let closeIngredientTag of closeIngredientTags) {
-    closeIngredientTag.addEventListener('click' , () =>{
-        document.getElementsByClassName('ingredientTag').style.display = 'none';
-    });
+
+  
+    
+
+
+
+
+// if ingredient of dropdown'list don't corresponded to input's value of dropdown => remove it
+
+function specifiedIngredientSearch(el) {
+    let optionIngredients = document.getElementsByClassName('menu__option-ingredient');
+    console.log(optionIngredients[0].innerText);
+    for (let optionIngredient of optionIngredients) {
+       if (!optionIngredient.innerText.match(el.value)) {
+           optionIngredient.style.display = 'none';
+       }else{
+        optionIngredient.style.display = 'block';
+       }
+    };        
+}       
+// if appliance of dropdown'list don't corresponded to input's value of dropdown => remove it
+
+function specifiedAppareilSearch(el) {
+    let optionAppareils = document.getElementsByClassName('menu__option-appareil');
+    console.log(optionAppareils[0].innerText);
+    for (let optionAppareil of optionAppareils) {
+       if (!optionAppareil.innerText.match(el.value)) {
+           optionAppareil.style.display = 'none';
+       }else{
+        optionAppareil.style.display = 'block';
+       }
+    };        
 };
+// if ustensile of dropdown'list don't corresponded to input's value of dropdown => remove it
+function specifiedUstensileSearch(el) {
+    let optionUstensiles = document.getElementsByClassName('menu__option-ustensile');
+    
+    for (let optionUstensile of optionUstensiles) {
+       if (!optionUstensile.innerText.match(el.value)) {
+           optionUstensile.style.display = 'none';
+       }else{
+        optionUstensile.style.display = 'block';
+       }
+    };        
+}
+    
+
+window.tagIngredientsDisplay = tagIngredientsDisplay;
+window.specifiedIngredientSearch = specifiedIngredientSearch;
+window.specifiedUstensileSearch = specifiedUstensileSearch;
+window.specifiedAppareilSearch = specifiedAppareilSearch;
+window.tagAppareilsDisplay = tagAppareilsDisplay;
+window.tagUstensilesDisplay = tagUstensilesDisplay;
+window.closeDropdownIngredients = closeDropdownIngredients;
+window.closeDropdownUstensiles = closeDropdownUstensiles;
+window.closeDropdownAppareils = closeDropdownAppareils;
+window.closeTagIngredient = closeTagIngredient;
+window.specifiedSearch = specifiedSearch;

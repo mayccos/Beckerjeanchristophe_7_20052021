@@ -43,7 +43,7 @@
                             <button class="btn ml-4 ml-sm-0"  id="ingredients" type="button"  aria-haspopup="listbox">Ingredients 
                                 <span class="arrow" id="arrow"></span></button>
                             <div class="dropdown__menu text-center " id="dropdown-menuIng">
-                                <input class="col dropdown__filter " id="ingredientsSearch" type="text" placeholder="recherche un ingrédient">
+                                <input class="col dropdown__filter" oninput="specifiedIngredientSearch(this)" id="ingredientsSearch" type="list" placeholder="recherche un ingrédient">
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="ingredientsList" role="listbox">
                                 <!--option role="option" class="menu__option" tabindex="0" >#</!option>
                                 <option role="option" class="menu__option" tabindex="0" >#</option>
@@ -54,9 +54,9 @@
                     
 				        <div id="dropdown-appareils"    class="dropdown">
                             <button class="btn ml-4 ml-sm-3 ml-md-5"  id="appareils" type="button"  aria-haspopup="listbox">Appareils
-                                <span class="arrow2"></span></button>
+                                <span class="arrow2" id="arrow2"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuApp">
-                                <input class="col dropdown__filter " id="appareilsSearch"  type="text" placeholder="recherche un appareil">
+                                <input class="col dropdown__filter " id="appareilsSearch" oninput="specifiedAppareilSearch(this)"  type="text" placeholder="recherche un appareil">
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="appareilsList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
@@ -65,10 +65,10 @@
                             </div> 
                         </div>
 				        <div id="dropdown-ustensiles"  class="dropdown">
-                            <button class="btn ml-4 ml-sm-3 ml-md-5"  id="ustensiles" type="button"  aria-haspopup="listbox">Ustensiles 
+                            <button class="btn ml-4 ml-sm-3 ml-md-5"  id="ustensiles" oninput="specifiedUstensileSearch(this)" type="button"  aria-haspopup="listbox">Ustensiles 
                                 <span class="arrow3"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuUst">
-                                <input class="col dropdown__filter " id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
+                                <input class="col dropdown__filter" id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="ustensilesList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>

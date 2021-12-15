@@ -49,17 +49,15 @@ export default class Recipe{
               `;
     }
     ingredientsInRecipes(){
-      //let ing = "";
+      
       let html = "";
       for (let i = 0; i < this.ingredients.length; i++) {
-        /*ing += `<li class="col-12"><strong>${this.ingredients[i]} :</strong> ${this.quantity} ${this.unit}</li> `;
-      } return ing;
-    }*/
+     
    
       let ing = this.ingredients[i];
 	    
 
-		//for(let ing of r.ingredients){
+		
 		  let quantity = "";
 			let unit     = "";
 			let space    = " ";

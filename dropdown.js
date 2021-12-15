@@ -25,7 +25,7 @@ function openDropdownUstensiles() {
 
 function closeDropdownIngredients() {
     const option = document.querySelector('#dropdown-menuIng');
-    const arrow = document.querySelector('.arrow');
+    const arrow = document.querySelector('.arrow' ,'before');
     
     option.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
@@ -34,19 +34,19 @@ function closeDropdownIngredients() {
 
 function closeDropdownAppareils() {
     const option = document.querySelector('#dropdown-menuApp');
-    const arrow = document.querySelector('.arrow2');
+    const arrow2 = document.querySelector('.arrow2', 'before');
     
     option.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
+    arrow2.style.transform = 'rotate(0deg)';
     
 };    
 
 function closeDropdownUstensiles() {
     const option = document.querySelector('#dropdown-menuUst');
-    const arrow = document.querySelector('.arrow3','before');
+    const arrow3 = document.querySelector('.arrow3', 'before');
     
     option.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
+    arrow3.style.transform = 'rotate(0deg)';
     
 };
 

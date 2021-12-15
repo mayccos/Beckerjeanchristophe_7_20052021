@@ -138,6 +138,7 @@ input{
     }
 }
 .ingredientTag, .appareilTag, .ustensileTag{
+    
     padding-top: 5px;
     border-radius: 5px;
     display: flex;
@@ -148,6 +149,7 @@ input{
     margin-left: 20px;
 }
 .closeIngredientTag, .closeAppareilTag, .closeUstensileTag{
+    z-index: 6;
     cursor: pointer;
     &::before{
         content: url('/images/closeTag.svg');
@@ -181,6 +183,10 @@ form{
             color: $inputColor;
         }
     }
+    &__filter{
+        z-index: 4;
+        position: relative;
+    }
     
     &__menu{
         display: none;
@@ -202,8 +208,8 @@ form{
     justify-content: center;
     align-items: center;
     color: $inputColor;
-    cursor: pointer;
-    z-index: 1;
+    
+    z-index: 5;
     width: 40px;
     cursor: pointer;
     top: 23px;
