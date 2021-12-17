@@ -152,21 +152,29 @@ function search() {
 //display ingredient selected of dropdown in active(html element)
 const active = document.querySelector('.active');
 function tagIngredientsDisplay(el) {
-    active.innerHTML += `<p class="ingredientTag">${el.innerText}<span class="closeIngredientTag mt-1" onclick"closeTagIngredient()"></span></p>`;
+    active.innerHTML += `<p class="ingredientTag">${el.innerText}<span class="closeIngredientTag mt-1" onclick="closeTagIngredient(this)"></span></p>`;
 };
 //display appliance selected of dropdown in active(html element)
 
 function tagAppareilsDisplay(el) {
-    active.innerHTML += `<p class="appareilTag ">${el.innerText}<span class="closeAppareilTag mt-1" ></span></p>`;
+    active.innerHTML += `<p class="appareilTag ">${el.innerText}<span class="closeAppareilTag mt-1 " onclick="closeTagAppareil(this)" ></span></p>`;
 };
 //display ustensile selected of dropdown in active (html element) 
 function tagUstensilesDisplay(el) {
-    active.innerHTML += `<p class="ustensileTag">${el.innerText}<span class="closeUstensileTag mt-1"></span></p>`;
+    active.innerHTML += `<p class="ustensileTag">${el.innerText}<span class="closeUstensileTag mt-1" onclick="closeTagUstensile(this)"></span></p>`;
 };
-//remove ingredient'tag in active(html element)
+// function to remove dropdown's tag in active(html element)
 function closeTagIngredient() {
-    document.getElementsByClassName('ingredientTag').style.display = 'none';
+    document.querySelector('.ingredientTag').style.display = 'none';
+    
 }
+function closeTagAppareil() {
+    document.querySelector('.appareilTag').style.display = 'none';
+};
+function closeTagUstensile() {
+    document.querySelector('.ustensileTag').style.display = 'none';
+};
+
 //display no result message when this is not recipe
 function noResult() {
     let item = searchInput.value; 
@@ -192,7 +200,7 @@ document.querySelector('.search__glass').addEventListener('click' , () => {
     document.querySelector('#ustensilesList').innerHTML = "";
     search();
     noResult();
-    
+    active.innerHTML = "";
     
 });
 //When input search(principal) is clicked ,it value become empty
@@ -222,17 +230,19 @@ document.querySelector('#ustensiles').addEventListener('click' , () => {
     openDropdownUstensiles();
     document.querySelector('#ustensilesSearch').value = "";
 });
-//Event to close dropdown
-document.querySelector('.arrow' , 'before').addEventListener('click' , (e) =>{
+//Event to close dropdown 
+document.querySelector('.return-arrow').addEventListener('click' , () =>{
     
     closeDropdownIngredients();
 });
-document.querySelector('.arrow2').addEventListener('click' , () =>{
+document.querySelector('.return-arrow2').addEventListener('click' , () =>{
     closeDropdownAppareils();
 });
-document.querySelector('.arrow3').addEventListener('click' , () =>{
+document.querySelector('.return-arrow3').addEventListener('click' , () =>{
     closeDropdownUstensiles();
-})
+});
+
+
 
 // if Escape touch is keyup => close dropdown
 window.addEventListener('keyup' , function (e){
@@ -246,7 +256,7 @@ window.addEventListener('keyup' , function (e){
 });
 
 
-
+//displaying recipes according to secondary filter (dropdown)
 function specifiedSearch(e) {
     document.querySelector('.recipesList').innerHTML = "";
     for (const recipe3 of recipes3) {
@@ -322,4 +332,6 @@ window.closeDropdownIngredients = closeDropdownIngredients;
 window.closeDropdownUstensiles = closeDropdownUstensiles;
 window.closeDropdownAppareils = closeDropdownAppareils;
 window.closeTagIngredient = closeTagIngredient;
+window.closeTagAppareil = closeTagAppareil;
+window.closeTagUstensile = closeTagUstensile;
 window.specifiedSearch = specifiedSearch;

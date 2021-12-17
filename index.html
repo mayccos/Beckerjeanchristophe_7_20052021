@@ -25,13 +25,15 @@
             </div>
         </div>
         <main>
-            <form action="" method="post">
+            <form action="" method="post" class="principalSearch">
                 <div class="row search">
                     <div class="inputSearch col-11 text-center">
                         <input type="text" class="col searchInput" id="searchInput" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
                         <span class="search__glass" id="searchGlass"></span>
                     </div>    
                 </div><br>
+            </form>
+            <form action="" method="post" class="searchSpecified">
                 <div class="row active   ml-sm-3 ml-md-4 ml-xl-5">
                    <!-- <p class="ingredientTag">lait<span class="closeIngredientTag"></span></p>
                     <p class="appareilTag">four<span class="closeAppareilTag"></span></p>
@@ -44,6 +46,7 @@
                                 <span class="arrow" id="arrow"></span></button>
                             <div class="dropdown__menu text-center " id="dropdown-menuIng">
                                 <input class="col dropdown__filter" oninput="specifiedIngredientSearch(this)" id="ingredientsSearch" type="list" placeholder="recherche un ingrédient">
+                                <span class="return-arrow"></span>
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="ingredientsList" role="listbox">
                                 <!--option role="option" class="menu__option" tabindex="0" >#</!option>
                                 <option role="option" class="menu__option" tabindex="0" >#</option>
@@ -57,6 +60,7 @@
                                 <span class="arrow2" id="arrow2"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuApp">
                                 <input class="col dropdown__filter " id="appareilsSearch" oninput="specifiedAppareilSearch(this)"  type="text" placeholder="recherche un appareil">
+                                <span class="return-arrow2"></span>
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="appareilsList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>
@@ -69,6 +73,7 @@
                                 <span class="arrow3"></span></button>
                             <div class="dropdown__menu text-center" id="dropdown-menuUst">
                                 <input class="col dropdown__filter" id="ustensilesSearch"  type="text" placeholder="recherche un ustensile">
+                                <span class="return-arrow3"></span> 
                                 <ul class="dropdown__filterList col list-unstyled ml-2" id="ustensilesList" role="listbox">
                                 <!--<li role="option" class="menu__option" tabindex="0" >#</li>
                                 <li role="option" class="menu__option" tabindex="0" >#</li>

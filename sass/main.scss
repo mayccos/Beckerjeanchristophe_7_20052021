@@ -164,8 +164,12 @@ input{
 .closeUstensileTag, .ustensileTag{
     background-color: $ustensileColor;
 }
-form{
-    
+.principalSearch{
+    position: relative;
+    z-index: 3;
+}
+.searchSpecified{
+    position: absolute;
     z-index: 3;
 }
 .dropdown{
@@ -217,6 +221,26 @@ form{
     border-radius: 5px;
     &::before {
         content: url('/images/selection-arrow.svg');
+    }
+    
+}
+.return-arrow , .return-arrow2 , .return-arrow3{
+    transition: transform 300ms;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $inputColor;
+    
+    z-index: 5;
+    width: 40px;
+    cursor: pointer;
+    top: 23px;
+    right: 0px;
+    border-radius: 5px;
+    
+    &::before{
+        content: url('/images/input-arrow.svg')
     }
 }
 
@@ -275,7 +299,7 @@ form{
     flex-wrap: wrap;
     position: fixed;
     z-index: 2;
-    top: 50px;
+    top: 100px;
 }
 .time{
     font-size: 1em;

@@ -164,7 +164,13 @@ input :focus {
   background-color: #ED6454;
 }
 
-form {
+.principalSearch {
+  position: relative;
+  z-index: 3;
+}
+
+.searchSpecified {
+  position: absolute;
   z-index: 3;
 }
 
@@ -210,6 +216,24 @@ form {
 }
 .arrow::before, .arrow2::before, .arrow3::before {
   content: url("/images/selection-arrow.svg");
+}
+
+.return-arrow, .return-arrow2, .return-arrow3 {
+  transition: transform 300ms;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  z-index: 5;
+  width: 40px;
+  cursor: pointer;
+  top: 23px;
+  right: 0px;
+  border-radius: 5px;
+}
+.return-arrow::before, .return-arrow2::before, .return-arrow3::before {
+  content: url("/images/input-arrow.svg");
 }
 
 .noResult {
@@ -260,7 +284,7 @@ form {
   flex-wrap: wrap;
   position: fixed;
   z-index: 2;
-  top: 50px;
+  top: 100px;
 }
 
 .time {
