@@ -90,8 +90,8 @@ function search() {
         dataRecipes.then(result =>{
             recipes2 = result;
 
-            //algorithm in forof's method functionality normal
-            for (let recipe of recipes2) {
+            //algorithm in foreach's method functionality optimal
+            recipes2.forEach(recipe =>{
 
                 if (recipe.name.match(item) || recipe.description.match(item) || recipe.appliance.match(item) || recipe.ingredients.toString().match(item) ||
                 recipe.ustensiles.toString().match(item)) {
@@ -104,7 +104,7 @@ function search() {
 
                 
                 }
-            }recuperationItemsFilteredInDropdown(recipes3);
+            });recuperationItemsFilteredInDropdown(recipes3);
             return recipes3;
             //recuperation of ingredients, appliances, ustensiles filtered by algorithm in arrays 
             function recuperationItemsFilteredInDropdown(recipes3) {
@@ -259,7 +259,7 @@ window.addEventListener('keyup' , function (e){
 //displaying recipes according to secondary filter (dropdown)
 function specifiedSearch(e) {
     document.querySelector('.recipesList').innerHTML = "";
-    for (const recipe3 of recipes3) {
+    recipes3.forEach(recipe3 => {
         
         let item2 = e.innerText;
         if (recipe3.name.match(item2) || recipe3.description.match(item2) || recipe3.appliance.match(item2) || recipe3.ingredients.toString().match(item2) ||
@@ -270,7 +270,7 @@ function specifiedSearch(e) {
             div.innerHTML = recipeCard;
             document.getElementById("recipesList").appendChild(div);  
         }
-    }
+    });
 }
 
 
