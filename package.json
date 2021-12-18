@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "jsbench": "^1.2.0",
     "sass": "^1.43.3"
   },
   "devDependencies": {},
