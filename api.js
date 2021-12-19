@@ -33,7 +33,7 @@ let parseDataFromJson = async () => {
   
   
   
-function recipeToText(r) {
+/*function recipeToText(r) {
     let out = r.name;
     out += " " + r.description;
     
@@ -47,7 +47,7 @@ function recipeToText(r) {
     
     return out;
     
-}
+}*/
 
 
     

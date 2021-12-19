@@ -24,7 +24,7 @@ function displayRecipes(recipes) {
           document.getElementById("recipesList").appendChild(div);
             
           
-    })
+    });
 }
 
 
@@ -43,9 +43,9 @@ function recuperationItemsInDropdown(recipes) {
             allUstensiles= [...new Set(allUstensiles.concat(recipe.ustensiles))];
             allAppliances= [...new Set(allAppliances.concat(recipe.appliance))];
            
-        })  
+        });  
           return {allIngredients, allUstensiles, allAppliances};
-};
+}
 /**
  * display ingredients,appliances,ustensiles in dropdown
  * @return  element html
@@ -56,21 +56,21 @@ function displayIngredients(allIngredients) {
         const ul = document.getElementById('ingredientsList');
         ul.innerHTML +=` <li role="option"  class="menu__option-ingredient" tabindex="0" style="cursor:pointer">${allIngredient}</li> ` ;
     }); 
-};
+}
 displayAppliances(allAppliances);
 function displayAppliances(allAppliances) {
   allAppliances.forEach(allAppliance =>{
       const ul = document.getElementById('appareilsList');
       ul.innerHTML +=` <li role="option" class="menu__option-appareil" tabindex="0" style="cursor:pointer">${allAppliance}</li> ` ;
   });      
-};
+}
 displayUstensiles(allUstensiles);
 function displayUstensiles(allUstensiles) {
   allUstensiles.forEach(allUstensile =>{
       const ul = document.getElementById('ustensilesList');
       ul.innerHTML +=` <li role="option"  class="menu__option-ustensile" tabindex="0" style="cursor:pointer" >${allUstensile}</li> ` ;
   });      
-};
+}
 //regex
 const regexInput = /^[a-zA-Z]{3,}$/;
 let recipes2 = [];
@@ -126,43 +126,44 @@ function search() {
                         const ul = document.getElementById('ustensilesList');
                         ul.innerHTML +=` <li role="option" onclick="tagUstensilesDisplay(this), closeDropdownUstensiles(this)"  class="menu__option-ustensile" tabindex="0" style="cursor:pointer" >${ustensileFiltered}</li> ` ;
                     });      
-                };
+                }
                 //display ingredients filtered in dropdown ingredients
                 function displayIngredients(ingredientsFiltered) {
                     ingredientsFiltered.forEach(ingredientFiltered =>{
                         const ul = document.getElementById('ingredientsList');
                         ul.innerHTML +=` <li role="option" onclick="tagIngredientsDisplay(this), closeDropdownIngredients(this), specifiedSearch(this)"  class="menu__option-ingredient" tabindex="0" style="cursor:pointer">${ingredientFiltered}</li> ` ;
                     });     
-                };
+                }
                 //display appliances filtered in dropdown appliances
                 function displayAppliances(appliancesFiltered) {
                     appliancesFiltered.forEach(applianceFiltered =>  {
                         const ul = document.getElementById('appareilsList');
                         ul.innerHTML +=` <li role="option"  class="menu__option-appareil" onclick="tagAppareilsDisplay(this),closeDropdownAppareils(this)" tabindex="0" style="cursor:pointer">${applianceFiltered}</li> ` ;
                     });   
-                }; 
+                } 
                 
-            };
+            }
             
         }); 
     }
     
     return recipes3;
-};
+}
+console.time(search)/ console.timeEnd(search);
 //display ingredient selected of dropdown in active(html element)
 const active = document.querySelector('.active');
 function tagIngredientsDisplay(el) {
     active.innerHTML += `<p class="ingredientTag">${el.innerText}<span class="closeIngredientTag mt-1" onclick="closeTagIngredient(this)"></span></p>`;
-};
+}
 //display appliance selected of dropdown in active(html element)
 
 function tagAppareilsDisplay(el) {
     active.innerHTML += `<p class="appareilTag ">${el.innerText}<span class="closeAppareilTag mt-1 " onclick="closeTagAppareil(this)" ></span></p>`;
-};
+}
 //display ustensile selected of dropdown in active (html element) 
 function tagUstensilesDisplay(el) {
     active.innerHTML += `<p class="ustensileTag">${el.innerText}<span class="closeUstensileTag mt-1" onclick="closeTagUstensile(this)"></span></p>`;
-};
+}
 // function to remove dropdown's tag in active(html element)
 function closeTagIngredient() {
     document.querySelector('.ingredientTag').style.display = 'none';
@@ -173,7 +174,7 @@ function closeTagAppareil() {
 };
 function closeTagUstensile() {
     document.querySelector('.ustensileTag').style.display = 'none';
-};
+}
 
 //display no result message when this is not recipe
 function noResult() {
@@ -213,7 +214,7 @@ document.querySelector('.searchInput').addEventListener('click' , () =>{
     hide.style.display = 'none';
     document.querySelector('.searchInput').value = "";
     active .innerHTML = "";
-})
+});
  //when input of dropdown is clicked => input value is empty
 
     
