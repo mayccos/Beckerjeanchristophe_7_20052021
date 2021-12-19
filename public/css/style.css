@@ -237,6 +237,7 @@ input :focus {
 }
 
 .noResult {
+  margin-top: 150px;
   color: #ffffff;
 }
 

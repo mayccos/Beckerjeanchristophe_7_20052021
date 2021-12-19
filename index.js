@@ -71,6 +71,7 @@ function displayUstensiles(allUstensiles) {
       ul.innerHTML +=` <li role="option"  class="menu__option-ustensile" tabindex="0" style="cursor:pointer" >${allUstensile}</li> ` ;
   });      
 }
+
 //regex
 const regexInput = /^[a-zA-Z]{3,}$/;
 let recipes2 = [];
@@ -86,6 +87,7 @@ function search() {
     if (regexInput.exec(item) === null) {
         hide.style.display = "block";
     } else {
+        console.time();
         hide.style.display = "none";
         dataRecipes.then(result =>{
             recipes2 = result;
@@ -145,11 +147,12 @@ function search() {
             }
             
         }); 
-    }
+      
+    }console.timeEnd();  
     
     return recipes3;
 }
-console.time(search)/ console.timeEnd(search);
+
 //display ingredient selected of dropdown in active(html element)
 const active = document.querySelector('.active');
 function tagIngredientsDisplay(el) {
