@@ -86,6 +86,7 @@ function search() {
     if (regexInput.exec(item) === null) {
         hide.style.display = "block";
     } else {
+        console.time();
         hide.style.display = "none";
         dataRecipes.then(result =>{
             recipes2 = result;
@@ -145,7 +146,7 @@ function search() {
             }
             
         }); 
-    }
+    }console.timeEnd();
     
     return recipes3;
 }
