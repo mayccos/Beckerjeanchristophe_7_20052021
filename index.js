@@ -105,7 +105,8 @@ function search() {
 
                 
                 }
-            });recuperationItemsFilteredInDropdown(recipes3);
+            });
+            recuperationItemsFilteredInDropdown(recipes3);
             return recipes3;
             //recuperation of ingredients, appliances, ustensiles filtered by algorithm in arrays 
             function recuperationItemsFilteredInDropdown(recipes3) {
